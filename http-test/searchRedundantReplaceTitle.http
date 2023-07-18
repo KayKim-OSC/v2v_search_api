@@ -1,0 +1,2 @@
+###replace_title 동일한 기준 조회
+GET http://localhost:8080/api/v1/search/ThebestSamsungGalaxy?pageIndex=1&pageSize=50

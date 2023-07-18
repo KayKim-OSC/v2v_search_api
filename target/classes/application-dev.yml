@@ -1,0 +1,65 @@
+####################################################################################################
+#server 설정 정보
+  # 서버 기동 포트 및 종료 방법
+  # 내장 톰캣 스레드 갯수
+  # Response Data gzip 압축 및 인코딩 설정
+####################################################################################################
+server:
+  port: 8080
+  shutdown: graceful
+  tomcat:
+    threads:
+      max: 200
+      min-spare: 10
+    accept-count: 100
+    uri-encoding: utf-8
+  servlet:
+    encoding:
+      enabled: true
+      charset: UTF-8
+      force: true
+  compression:
+    enabled: true
+    mime-types: application/json
+    min-response-size: 500KB
+####################################################################################################
+# Response Json 메시지 Pretty Print
+####################################################################################################
+spring:
+  jackson:
+    serialization:
+      indent-output: true
+####################################################################################################
+  # config 파일 (logback.xml) 파일 경로
+####################################################################################################
+logging:
+  config: config/logback.xml
+####################################################################################################
+# Application Default Value 설정 정보
+# default.paging-size = 페이징 화면 사이즈
+# scheduling.pool-size= 인덱스 스케줄링 스레드 갯수 (5)개 설정
+####################################################################################################
+application:
+  default:
+    paging-size: 50
+  scheduling:
+    pool-size: 5
+####################################################################################################
+  # Opensearch Connection 설정 정보 (development)
+  # Query Request Timeout 설정 (초 단위)
+  # Index 보관 주기 설정 (월 단위)
+####################################################################################################
+opensearch:
+  targets: amaaaaaa3vux2giasbsfc4o2vlbre7kntjw7ozgluhzl5y63urcpf75522ja.opensearch.ap-chuncheon-1.oci.oraclecloud.com
+  port: 9200
+  method: https
+  setting-info :
+    query:
+     time-out: 10 #(초 단위)
+    index:
+     life-cycle: 36 #(월 단위)
+
+
+
+
+

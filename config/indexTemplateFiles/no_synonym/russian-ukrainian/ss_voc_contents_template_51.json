@@ -1,0 +1,424 @@
+{
+  "index_patterns": [
+    "ss_voc_contents_*_51"
+  ],
+  "settings": {
+    "index": {
+      "number_of_shards": "8",
+      "number_of_replicas": "2",
+      "refresh_interval": "5s"
+    },
+    "analysis": {
+      "filter": {
+        "russian_stemmer": {
+          "type":       "stemmer",
+          "language":   "russian"
+        },
+        "english_stemmer": {
+          "type": "stemmer",
+          "language": "english"
+        },
+        "english_possessive_stemmer": {
+          "type": "stemmer",
+          "language": "possessive_english"
+        }
+      },
+      "analyzer": {
+        "russian_analyzer": {
+          "tokenizer": "standard",
+          "filter": [
+            "russian_stemmer",
+            "lowercase",
+            "snowball"
+          ]
+        },
+        "english_analyzer": {
+          "tokenizer": "standard",
+          "filter": [
+            "english_possessive_stemmer",
+            "english_stemmer",
+            "lowercase",
+            "snowball"
+          ]
+        }
+      }
+    }
+  },
+  "mappings": {
+    "properties": {
+      "doc_id": {
+        "type": "keyword"
+      },
+      "work_date": {
+        "type": "keyword"
+      },
+      "doc_date": {
+        "type": "keyword"
+      },
+      "colct_date": {
+        "type": "long"
+      },
+      "colct_dt": {
+        "type": "long"
+      },
+      "weeks": {
+        "type": "keyword"
+      },
+      "channel_code": {
+        "type": "keyword"
+      },
+      "lang_code": {
+        "type": "keyword"
+      },
+      "org_lang_code": {
+        "type": "keyword"
+      },
+      "org_lang_name": {
+        "type": "keyword"
+      },
+      "url": {
+        "type": "keyword"
+      },
+      "url_ref": {
+        "type": "keyword"
+      },
+      "summary": {
+        "type": "text",
+        "analyzer": "russian_analyzer"
+      },
+      "title": {
+        "type": "text",
+        "analyzer": "english_analyzer"
+      },
+      "replace_title": {
+        "type": "keyword"
+      },
+      "doc_cn": {
+        "type": "text",
+        "analyzer": "english_analyzer"
+      },
+      "org_title": {
+        "type": "text",
+        "analyzer": "russian_analyzer"
+      },
+      "org_doc_cn": {
+        "type": "text",
+        "analyzer": "russian_analyzer"
+      },
+      "online_store_doc_cn": {
+        "type": "text",
+        "analyzer": "russian_analyzer"
+      },
+      "first_reg_datetime": {
+        "type": "date",
+        "format": "yyyy-MM-dd HH:mm:ss.SSS"
+      },
+      "first_regr_id": {
+        "type": "keyword"
+      },
+      "last_mod_datetime": {
+        "type": "date",
+        "format": "yyyy-MM-dd HH:mm:ss.SSS"
+      },
+      "last_modr_id": {
+        "type": "keyword"
+      },
+      "doc_prd_id": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "channel_type": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "country_code": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "country_name": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "site_id": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "site_name": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "store_rate": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "trans_yn": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "online_store_yn": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "category_code": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "category_length": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "category_type": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "gbm": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "company": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "product_code": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "product_name": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "product_keyword": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "senti": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "opinion_kwd": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "feature_kwd": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "problem_kr": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "problem_en": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "component_lv1": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "component_lv2": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "main_type": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "main_type_name": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "model_name": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "app_id": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "app_name": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "os_ver": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "fw_ver": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "app_ver": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "csc": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "level3": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "vf1": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "vf2": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "risk_id": {
+        "type": "keyword",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      }
+    }
+  }
+}

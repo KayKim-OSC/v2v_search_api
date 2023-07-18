@@ -1,0 +1,30 @@
+###검색조건에 의한 조회
+POST http://localhost:8080/api/v1/search
+Content-Type: application/json
+
+
+{
+  "sDate":"20200101",
+  "eDate":"20200131",
+  "langCode":"19",
+  "orderBy":"1",
+  "duplicateYn":"Y",
+  "pageIndex":1,
+  "pageSize":50,
+  "keyword":"",
+  "synonymYn":"N",
+  "addKeyWords":[ ],
+  "types":[""],
+  "productCodes":[""],
+  "channelCodes":["NEWS"],
+  "componentCodes":[""],
+  "opinionCodes":[""],
+  "siteCodes":[""],
+  "itemCodes":[""],
+  "gbms":[""],
+  "makers":["SAMSUNG"],
+  "mainTypes":[""],
+  "osVers":[""],
+  "fwVers":[""],
+  "appCodes":[""]
+}
